@@ -28,7 +28,6 @@ settings.json
 .editorconfig
 
 *.zip
-*.sql
 *.docx
 /web/.csslintrc
 /web/.eslintignore
