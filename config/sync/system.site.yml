@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: pt-br
+uuid: 4cb7fedd-a8f3-42bc-a7fd-7b355fce5fa0
+name: 'Drupal 10 com Layout Builder Core'
+mail: bladellano@gmail.com
+slogan: 'Somos o que somos...'
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: pt-br
+mail_notification: null
