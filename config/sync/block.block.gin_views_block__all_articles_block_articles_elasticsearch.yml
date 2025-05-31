@@ -1,0 +1,29 @@
+uuid: 176be13b-f863-41f8-b642-c4f0f1c8f4f4
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - views.view.all_articles
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: gin_views_block__all_articles_block_articles_elasticsearch
+theme: gin
+region: header
+weight: -4
+provider: null
+plugin: 'views_block:all_articles-block_articles_elasticsearch'
+settings:
+  id: 'views_block:all_articles-block_articles_elasticsearch'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

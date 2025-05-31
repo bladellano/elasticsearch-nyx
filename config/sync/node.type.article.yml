@@ -1,7 +1,14 @@
 uuid: f010af60-247e-483c-ac1e-4dfadd8197c7
 langcode: pt-br
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 _core:
   default_config_hash: Fe3N1uqaAyyKJbVkqT-btXy3t98puW8GCRD822xjl10
 name: Artigo
@@ -10,4 +17,4 @@ description: 'Use <em>artigos</em> para conteúdo temporal como notícias, comun
 help: null
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false
