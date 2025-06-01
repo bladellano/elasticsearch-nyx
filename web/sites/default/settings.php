@@ -899,11 +899,11 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'drupal10_lb',
+  'database' => 'drupal',
   'username' => 'root',
-  'password' => '059924',
+  'password' => 'root',
   'prefix' => '',
-  'host' => 'localhost',
+  'host' => 'db',
   'port' => '3306',
   'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
