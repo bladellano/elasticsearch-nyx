@@ -1,85 +1,58 @@
+# Projeto Drupal com Elasticsearch
 
-# 🔍 Drupal + Elasticsearch: Exemplo de Integração
+## Configuração inicial
 
-Este projeto demonstra a integração entre **Drupal**, **Search API** e **Elasticsearch** utilizando conteúdo gerado com o módulo **Devel**.
+1. Clone o arquivo `.env.example` para `.env`:
+   ```bash
+   cp .env.example .env
+   ```
 
-## ✅ Requisitos
+2. Adicione a seguinte URL ao arquivo `/etc/hosts`:
+   ```
+   127.0.0.1 drupal-elasticsearch.docker.local
+   ```
 
-- Módulos:
-  - `search_api`
-  - `elasticsearch_connector`
-  - `devel`
-  - `devel_generate`
-- Docker
+3. Certifique-se de que o `Make` esteja instalado no sistema.
 
-## 🐳 Subir o container Elasticsearch local
+## Comandos principais
 
+### Instalar o projeto
+Para instalar o projeto de forma prática, execute:
 ```bash
-docker run -d --name elasticsearch \
-  -e "discovery.type=single-node" \
-  -e "xpack.security.enabled=false" \
-  -p 9200:9200 \
-  docker.elastic.co/elasticsearch/elasticsearch:7.17.20
+make install
 ```
 
-## ⚙️ Configuração no Drupal
-
-### 1. Habilitar os módulos necessários
-
+### Remover o projeto
+Para remover o projeto completamente, execute:
 ```bash
-drush en search_api elasticsearch_connector devel devel_generate -y
+make prune
 ```
 
-### 2. Gerar conteúdo de teste
+## Mais informações
+Para mais detalhes sobre os comandos disponíveis, consulte o arquivo `docker.mk`.
 
-```bash
-drush generate-content 500 --types=article
-```
+---
 
-### 3. Criar servidor Elasticsearch no Search API
+## Exercício Pós-Instalação
 
-- Nome: `Elasticsearch Local`
-- Tipo: Elasticsearch 7.x
-- URL: `http://localhost:9200`
+Após subir este projeto, siga os passos abaixo:
 
-### 4. Criar index no Search API
+1. **Apagar/Desabilitar Server e Index do Server**:
+   - Acesse a configuração do Elasticsearch no Drupal e remova ou desative o servidor e o índice existentes.
 
-- Nome: `Articles`
-- Entidade: Node > Article
-- Adicionar campos:
-  - Título
-  - Corpo
-- Configurar processadores:
-  - Fulltext
-  - HTML filter
-  - Language
+2. **Criar um novo Server e Index**:
+   - Configure um novo servidor e índice no módulo de pesquisa.
 
-### 5. Criar View para pesquisa
+3. **Criar um tipo de conteúdo novo**:
+   - Adicione um tipo de conteúdo com apenas dois campos: **Title** e **Body**.
 
-- Nome: `Listagem de artigos pesquisáveis`
-- Tipo: **Bloco**
-- Mostrar: Search API index > Articles
-- Adicionar campos:
-  - Título (datasource)
-  - Corpo (datasource)
-- Filtros expostos:
-  - Título
-  - Corpo
-  - Fulltext search (campo global)
+4. **Gerar conteúdos com o módulo Devel**:
+   - Use o módulo `Devel` e `Devel Generate` para criar conteúdos automaticamente.
 
-### 6. Aparência do site
+5. **Configurar campos e processadores**:
+   - Configure os campos e processadores no índice de pesquisa.
 
-```bash
-drush theme:enable gin
-drush config:set system.theme default gin -y
-```
+6. **Criar uma View**:
+   - Crie uma View para listar os itens pesquisáveis.
 
-### 7. Adicionar bloco de view
-
-- Vá em **Estrutura > Layout**
-- Adicione o bloco da view **Listagem de artigos pesquisáveis** no **Cabeçalho**
-
-### 8. Desabilitar exibição de conteúdos no frontpage
-
-- Acesse: `/admin/structure/views/view/frontpage`
-- Desative a view ou remova o caminho `<front>`
+Boa sorte com o exercício e aproveite o projeto!
