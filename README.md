@@ -56,3 +56,40 @@ Após subir este projeto, siga os passos abaixo:
    - Crie uma View para listar os itens pesquisáveis.
 
 Boa sorte com o exercício e aproveite o projeto!
+
+## Como testar
+
+Para executar os testes com PHPUnit no container Docker:
+
+1. Instale as dependências de desenvolvimento (caso ainda não tenha feito):
+
+   ```bash
+   docker-compose exec app composer require --dev phpunit/phpunit
+   ```
+
+2. Execute os testes:
+
+   ```bash
+   docker-compose exec app vendor/bin/phpunit --colors=always
+   ```
+
+## Configuração do VSCode para Xdebug
+
+Para usar o Xdebug no Docker com o VSCode, crie ou atualize o arquivo `.vscode/launch.json` com:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "XDebug (Docker)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html": "${workspaceRoot}"
+            }
+        }
+    ]
+}
+```

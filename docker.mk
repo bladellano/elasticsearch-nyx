@@ -41,10 +41,10 @@ wait-db:
 install:
 	@echo "Install up containers and import db for APP-ELASTICSEARCH..."
 	@$(MAKE) prune
+	@$(MAKE) build
 	@$(MAKE) up
 	@$(MAKE) composer
 	@$(MAKE) wait-db
-	@$(MAKE) import-db
 
 ## down : Stop containers.
 down: stop
@@ -62,6 +62,11 @@ prune:
 ## in : Access container shell.
 in:
 	@docker exec -it drupal_app bash
+
+## in : Access container shell.
+build:
+	@echo "Building containers for APP-ELASTICSEARCH..."
+	@docker compose build
 
 # https://stackoverflow.com/a/6273809/1826109
 %:

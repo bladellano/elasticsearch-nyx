@@ -68,3 +68,14 @@ RUN cd /var/www/html && chmod +x ./init-drupal.sh
 
 # Ativa o módulo de reescrita do Apache
 RUN a2enmod rewrite
+
+# Install Xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Define a variável de ambiente para o uso do Xdebug
+RUN ( \
+    echo "xdebug.mode=debug"; \
+    echo "xdebug.client_host=host.docker.internal"; \
+    echo "xdebug.start_with_request=yes"; \
+) >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini

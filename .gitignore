@@ -48,3 +48,5 @@ settings.json
 
 # Ignore files css of theme
 #/web/themes/custom/module_name/*/*.css
+
+*.cache
