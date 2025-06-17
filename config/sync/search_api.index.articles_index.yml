@@ -81,8 +81,8 @@ processor_settings:
       postprocess_query: 0
       preprocess_query: 0
     boundary_scanner: sentence
-    boundary_scanner_locale: system
-    encoder: default
+    boundary_scanner_locale: pt-br
+    encoder: html
     fields:
       - body
       - title
@@ -91,7 +91,7 @@ processor_settings:
     no_match_size: 0
     number_of_fragments: 5
     order: none
-    pre_tag: '<em class="placeholder">'
+    pre_tag: '<mark>'
     require_field_match: true
     snippet_joiner: ' … '
     type: unified
@@ -154,6 +154,49 @@ processor_settings:
       - title
   language_with_fallback: {  }
   rendered_item: {  }
+  stopwords:
+    weights:
+      preprocess_index: -5
+      preprocess_query: -2
+    all_fields: false
+    fields:
+      - body
+    stopwords:
+      - a
+      - an
+      - and
+      - are
+      - as
+      - at
+      - be
+      - but
+      - by
+      - for
+      - if
+      - in
+      - into
+      - is
+      - it
+      - 'no'
+      - not
+      - of
+      - 'on'
+      - or
+      - s
+      - such
+      - t
+      - that
+      - the
+      - their
+      - then
+      - there
+      - these
+      - they
+      - this
+      - to
+      - was
+      - will
+      - with
   tokenizer:
     weights:
       preprocess_index: 0

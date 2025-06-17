@@ -24,6 +24,7 @@
         "drupal/devel": "^5.3",
         "drupal/elasticsearch_connector": "^8.0@alpha",
         "drupal/gin": "^4.0",
+        "drupal/imagemagick": "^4.0",
         "drupal/paragraphs": "^1.18",
         "drupal/pathauto": "^1.13",
         "drupal/search_api": "^1.38",
