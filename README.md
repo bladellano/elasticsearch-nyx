@@ -93,3 +93,18 @@ Para usar o Xdebug no Docker com o VSCode, crie ou atualize o arquivo `.vscode/l
     ]
 }
 ```
+
+## Observações
+
+Precisei modificar algumas partes padrões do Drupal para poder ter uma página inicial limpar somente para exibir o bloco de pesquisa.
+
+View:
+- No admin `http://drupal-elasticsearch.docker.local/admin/structure/views/view/frontpage/edit/page_1`
+
+- Modifiquei o filtro para não exibir - `Conteúdo Publicado:(=Nāo)`
+
+Tema:
+- Defini o Gin 4.1.0 como tema padrão.
+
+Layout de bloco:
+- Adicionei o bloco `Todos os artigos (elasticsearch): Block` (`http://drupal-elasticsearch.docker.local/admin/structure/block`) no cabeçalho, como primeiro item.

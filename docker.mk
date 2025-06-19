@@ -20,10 +20,20 @@ composer:
 	@echo "Composer install for APP-ELASTICSEARCH..."
 	@docker exec -it drupal_app sh -c "composer install"
 
+## composer : Run composer update.
+composer-update:
+	@echo "Composer update for APP-ELASTICSEARCH..."
+	@docker exec -it drupal_app sh -c "composer update"
+
 ## uli : Generate a one-time login link.
 uli:
 	@echo "Drush uli for APP-ELASTICSEARCH..."
 	@docker exec -it drupal_app sh -c "./vendor/bin/drush uli -l http://drupal-elasticsearch.docker.local/"
+
+## cr: Clear the Drupal cache.
+cr:
+	@echo "Drush cr for APP-ELASTICSEARCH..."
+	@docker exec -it drupal_app sh -c "./vendor/bin/drush cr"
 
 ## reindex : Re-index search-api.
 re-index:
@@ -34,7 +44,7 @@ re-index:
 wait-db:
 	@echo "Waiting for database container to be ready..."
 	@until docker exec drupal_db mysqladmin ping -hlocalhost --silent; do \
-		sleep 4; \
+		sleep 6; \
 	done
 
 ## install : Install up containers and import db.
@@ -45,6 +55,7 @@ install:
 	@$(MAKE) up
 	@$(MAKE) composer
 	@$(MAKE) wait-db
+	@$(MAKE) import-db
 
 ## down : Stop containers.
 down: stop

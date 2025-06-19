@@ -60,7 +60,7 @@ RUN ( \
   ) >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
 # Copia o arquivo de configuração do Apache para o contêiner
-COPY ./apache-config.conf /etc/apache2/sites-available/000-default.conf
+COPY ./.docker/apache-config.conf /etc/apache2/sites-available/000-default.conf
 
 # Copy init-drupal.sh script into the container
 COPY ./init-drupal.sh /var/www/html/
@@ -79,3 +79,6 @@ RUN ( \
     echo "xdebug.client_host=host.docker.internal"; \
     echo "xdebug.start_with_request=yes"; \
 ) >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+# Adiciona alias para o Drush no .bashrc do root
+RUN echo "alias drush='./vendor/bin/drush'" >> ~/.bashrc
