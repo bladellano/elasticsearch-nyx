@@ -30,6 +30,11 @@ uli:
 	@echo "Drush uli for APP-ELASTICSEARCH..."
 	@docker exec -it drupal_app sh -c "./vendor/bin/drush uli -l http://drupal-elasticsearch.docker.local/"
 
+## uli : Generate a one-time login link.
+backup:
+	@echo "Drush backup for APP-ELASTICSEARCH..."
+	@docker exec -it drupal_app sh -c "./vendor/bin/drush cex -y && ./vendor/bin/drush sql-dump > ./database/dump_2025-06-17_083226.sql"
+
 ## cr: Clear the Drupal cache.
 cr:
 	@echo "Drush cr for APP-ELASTICSEARCH..."
