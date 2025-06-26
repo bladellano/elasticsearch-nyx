@@ -108,3 +108,5 @@ Tema:
 
 Layout de bloco:
 - Adicionei o bloco `Todos os artigos (elasticsearch): Block` (`http://drupal-elasticsearch.docker.local/admin/structure/block`) no cabeçalho, como primeiro item.
+
+TESTE
